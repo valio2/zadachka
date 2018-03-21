@@ -114,6 +114,9 @@ $('#search-button').on('click', function () {
 
         functions.displayPages(wordsToPrint.length);
         functions.displayWords(wordsToPrint, 1);
+    } else {
+        functions.displayWords([],0);
+        functions.displayPages(0);
     }
 });
 
