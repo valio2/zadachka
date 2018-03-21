@@ -40,7 +40,7 @@ var functions = (function () {
         }
         if ($('#long-words-checkbox').prop('checked')) {
             wordsToPrint = wordsToPrint
-                .filter((word) => word.length <= 6);
+                .filter((word) => word.length >= 6);
         }
         return wordsToPrint;
     }
@@ -59,7 +59,14 @@ var functions = (function () {
         $('ul.pagination').html(temp);
         $('ul.pagination').prepend(prevBtn);
         $('ul.pagination').append(nextBtn);
-        $('li.page-item:first').next().toggleClass('active');
+        if (len > 0) {
+            $('.page-item.previous').show();
+            $('.page-item.next').show();
+            $('li.page-item:first').next().toggleClass('active');
+        } else {
+            $('.page-item.previous').hide();
+            $('.page-item.next').hide();
+        }
     }
 
     var displayWords = (wordsArr, page) => {
@@ -95,9 +102,11 @@ $('#reverse-order-checkbox').on('change', function () {
 
 $('#long-words-checkbox').on('change', function () {
     $('#search-button').click();
-
 });
 
+$('#search-field').on('input', function () {
+    $('#search-button').click();
+});
 
 $('#search-button').on('click', function () {
     if ($('.form-control').val().trim().length > 0) {
@@ -131,6 +140,9 @@ $('nav').on('click', 'a.page-link', function () {
             if (!isNaN(next.children(':first').html())) {
                 $('.active').toggleClass('active');
                 next.toggleClass('active');
+                var page = next.children(':first').html();
+                functions.displayWords(wordsToPrint, page);
+
             }
         }
     }
