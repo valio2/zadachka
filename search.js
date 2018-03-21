@@ -15,9 +15,9 @@ var functions = (function () {
     }
 
     var findMatches = (allWords) => {
-        var expression = $('.form-control').val().trim();
+        var expression = $('.form-control').val().trim().toLowerCase();
         var matchedWords = allWords.map((word) => {
-            if (word.indexOf(expression) >= 0) {
+            if (word.toLowerCase().indexOf(expression) >= 0) {
                 return word;
             }
             return null;
