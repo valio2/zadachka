@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Задача ZINE</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
+
+	<style>
+		h1 {
+			margin-bottom: 30px;
+			border-bottom: 1px solid #ddd;
+			padding-bottom: 20px;
+		}
+
+		h4 {
+			margin-top: 18px;
+		}
+
+		body {
+			padding-top: 25px;
+		}
+
+		form {
+			padding-bottom: 35px;
+			border-bottom: 1px solid #ddd;
+		}
+
+		.pages {
+			padding-top: 15px;
+			border-top: 1px solid #ddd;
+			text-align: center;
+		}
+
+		@media (min-width: 992px) {
+			#search-field {
+				min-width: 300px;
+			}
+			#search-button {
+				min-width: 240px;
+			}
+		}
+
+		@media (max-width: 767px) {
+			#search-field {
+				width: 100%;
+				margin-bottom: 14px;
+			}
+			#search-button {
+				width: 100%;
+				margin-top: 20px;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<h1>Търсене на думи</h1>
+		<form class="form-inline">
+			<input class="form-control" type="text" placeholder="Въведете символи" id="search-field">
+			<div class="form-check ml-md-3">
+				<label class="form-check-label">
+					<input class="form-check-input" id="reverse-order-checkbox" type="checkbox"> Обратен ред</label>
+			</div>
+			<div class="form-check ml-sm-3">
+				<label class="form-check-label">
+					<input class="form-check-input" id="long-words-checkbox" type="checkbox"> Само дълги думи</label>
+			</div>
+			<button class="btn btn-primary ml-md-auto" type="button" id="search-button">Търсене</button>
+		</form>
+		<h4>Резултати
+			<span class="text-muted">(8)</span>
+		</h4>
+		<ul class="words">
+			<li>word1</li>
+			<li>word2</li>
+			<li>word3</li>
+			<li>word5</li>
+			<li>word6</li>
+			<li>word7</li>
+			<li>word8</li>
+			<li>word9</li>
+		</ul>
+		<nav class="pages">
+			<ul class="pagination">
+				<li class="page-item previous">
+					<a class="page-link">
+						<span>«</span>
+					</a>
+				</li>
+				<li class="page-item next">
+					<a class="page-link">
+						<span>»</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+	<script src="./search.js"></script>
+</body>
+
+</html>
